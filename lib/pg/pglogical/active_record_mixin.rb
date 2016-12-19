@@ -1,9 +1,13 @@
-require_relative 'ar_pglogical/pglogical_raw'
+require "pg/pglogical"
 
-module PgLogicalAdapterMixin
-  def pglogical
-    PgLogicalRaw.new(self)
+module PG
+  module Pglogical
+    module ActiveRecordMixin
+      def pglogical
+        PG::Pglogical::Client.new(self)
+      end
+    end
   end
 end
 
-ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include PgLogicalAdapterMixin
+ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include PG::Pglogical::ActiveRecordMixin
