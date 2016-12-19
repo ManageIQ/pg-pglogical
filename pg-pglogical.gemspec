@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{A ruby gem for configuring and using pglogical}
   spec.description   = %q{This gem provides a class with methods which map directly to the SQL stored procedure APIs provided by pglogical. It also provides a way to mix these methods directly into the ActiveRecord connection object.}
   spec.homepage      = "https://github.com/ManageIQ/pg-pglogical"
-  spec.licence       = "Apache-2.0"
+  spec.license       = "Apache-2.0"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
