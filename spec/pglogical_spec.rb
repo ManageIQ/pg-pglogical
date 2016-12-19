@@ -1,6 +1,21 @@
 describe "ar_pglogical extension" do
   let(:connection) { ActiveRecord::Base.connection }
 
+  around do |example|
+    pool = ActiveRecord::Base.establish_connection(
+      :adapter  => "postgresql",
+      :database => "pg_pglogical_test",
+      :pool     => 1
+    )
+    pool.connection.transaction do
+      begin
+        example.call
+      ensure
+        raise ActiveRecord::Rollback
+      end
+    end
+  end
+
   before do
     skip "pglogical must be installed" unless connection.pglogical.installed?
   end
