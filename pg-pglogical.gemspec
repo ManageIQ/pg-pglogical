@@ -5,7 +5,7 @@ require 'pg/pglogical/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "pg-pglogical"
-  spec.version       = Pg::Pglogical::VERSION
+  spec.version       = PG::Pglogical::VERSION
   spec.authors       = ["Nick Carboni"]
   spec.email         = ["ncarboni@redhat.com"]
 
