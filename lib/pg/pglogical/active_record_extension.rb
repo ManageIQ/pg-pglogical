@@ -2,7 +2,7 @@ require "pg/pglogical"
 
 module PG
   module Pglogical
-    module ActiveRecordMixin
+    module ActiveRecordExtension
       def pglogical
         PG::Pglogical::Client.new(self)
       end
@@ -10,4 +10,4 @@ module PG
   end
 end
 
-ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include PG::Pglogical::ActiveRecordMixin
+ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include PG::Pglogical::ActiveRecordExtension
