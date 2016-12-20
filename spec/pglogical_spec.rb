@@ -17,10 +17,6 @@ describe "ar_pglogical extension" do
     ActiveRecord::Base.remove_connection
   end
 
-  before do
-    skip "pglogical must be installed" unless connection.pglogical.installed?
-  end
-
   describe "#enable" do
     it "enables the pglogical extension" do
       connection.pglogical.enable

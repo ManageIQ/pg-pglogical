@@ -31,7 +31,6 @@ describe "pglogical replication" do
   end
 
   before do
-    skip "pglogical must be installed" unless source_connection.pglogical.installed?
     create_tables
     enable_nodes
   end
