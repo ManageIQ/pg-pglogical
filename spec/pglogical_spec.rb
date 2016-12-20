@@ -14,6 +14,7 @@ describe "ar_pglogical extension" do
         raise ActiveRecord::Rollback
       end
     end
+    ActiveRecord::Base.remove_connection
   end
 
   before do
