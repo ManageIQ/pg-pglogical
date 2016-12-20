@@ -31,8 +31,5 @@ namespace :spec do
   end
 end
 
-RSpec::Core::RakeTask.new(:spec => "spec:setup") do
-  Rake::Task["spec:teardown"].execute
-end
-
+RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
