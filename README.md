@@ -1,5 +1,11 @@
 # PG::Pglogical
 
+[![Gem Version](https://badge.fury.io/rb/pg-pglogical.svg)](http://badge.fury.io/rb/pg-pglogical)
+[![Build Status](https://travis-ci.org/ManageIQ/pg-pglogical.svg)](https://travis-ci.org/ManageIQ/pg-pglogical)
+[![Code Climate](https://codeclimate.com/github/ManageIQ/pg-pglogical.svg)](https://codeclimate.com/github/ManageIQ/pg-pglogical)
+[![Test Coverage](https://codeclimate.com/github/ManageIQ/pg-pglogical/badges/coverage.svg)](https://codeclimate.com/github/ManageIQ/pg-pglogical/coverage)
+[![Dependency Status](https://gemnasium.com/ManageIQ/pg-pglogical.svg)](https://gemnasium.com/ManageIQ/pg-pglogical)
+
 This gem extends the ActiveRecord connection object to include methods which map directly to the SQL stored procedure APIs provided by pglogical.
 
 ## Installation
