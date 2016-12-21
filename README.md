@@ -18,10 +18,6 @@ Or install it yourself as:
 
     $ gem install pg-pglogical
 
-## Usage
-
-TODO: Write usage instructions here
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec:setup spec` to run the tests. `rake spec:teardown` will remove the databases created for test purposes. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
