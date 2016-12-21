@@ -6,7 +6,7 @@ rvm:
 before_install:
   - gem install bundler -v 1.13.6
   - source ${TRAVIS_BUILD_DIR}/ci/before_install.sh
-script:
-  - bundle exec rake spec:setup spec
+script: bundle exec rake spec:setup spec
+after_script: bundle exec codeclimate-test-reporter
 addons:
   postgresql: "9.5"
