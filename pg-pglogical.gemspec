@@ -9,8 +9,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nick Carboni"]
   spec.email         = ["ncarboni@redhat.com"]
 
-  spec.summary       = %q{A ruby gem for configuring and using pglogical}
-  spec.description   = %q{This gem provides a class with methods which map directly to the SQL stored procedure APIs provided by pglogical. It also provides a way to mix these methods directly into the ActiveRecord connection object.}
+  spec.summary       = "A ruby gem for configuring and using pglogical"
+  spec.description   = <<-EOS
+This gem provides a class with methods which map directly to the SQL stored
+procedure APIs provided by pglogical. It also provides a way to mix these
+methods directly into the ActiveRecord connection object.
+EOS
   spec.homepage      = "https://github.com/ManageIQ/pg-pglogical"
   spec.license       = "Apache-2.0"
 

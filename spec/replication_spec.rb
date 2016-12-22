@@ -69,8 +69,6 @@ describe "pglogical replication" do
   end
 
   it "replicates" do
-    insert_start = 0
-
     # Test that rows are replicated initially on subscription create
     insert_records
     target_connection.pglogical.subscription_create(sub_name, source_dsn, [replication_set_name], false)
