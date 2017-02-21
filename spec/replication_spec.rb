@@ -86,6 +86,8 @@ describe "pglogical replication" do
       expect(sub_info["status"]).to eq("replicating")
       expect(sub_info["provider_dsn"]).to eq(source_dsn)
       expect(sub_info["replication_sets"]).to eq([replication_set_name])
+      expect(sub_info["remote_replication_lsn"]).to match(%r{\h+/\h+})
+      expect(sub_info["local_replication_lsn"]).to match(%r{\h+/\h+})
 
       sub_list = target_connection.pglogical.subscriptions
       expect(sub_list.first).to eq(sub_info)
