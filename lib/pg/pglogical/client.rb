@@ -215,8 +215,17 @@ module PG
       #     slot_name
       #     replication_sets
       #     forward_origins
+      #     remote_replication_lsn(Log Sequence Number)
+      #     local_replication_lsn(Log Sequence Number)
       def subscription_show_status(name)
-        typed_exec("SELECT * FROM pglogical.show_subscription_status($1)", name).first.tap do |s|
+        sql = <<-SQL
+          SELECT sub.*, stat.remote_lsn AS remote_replication_lsn, stat.local_lsn AS local_replication_lsn
+          FROM pglogical.show_subscription_status($1) sub
+          JOIN pg_replication_origin_status stat
+            ON sub.slot_name = stat.external_id
+        SQL
+
+        typed_exec(sql, name).first.tap do |s|
           s["replication_sets"] = s["replication_sets"][1..-2].split(",")
           s["forward_origins"] = s["forward_origins"][1..-2].split(",")
         end
