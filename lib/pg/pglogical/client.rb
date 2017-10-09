@@ -179,9 +179,9 @@ module PG
       #
       # @param name [String] subscription name
       # @param table [String] name of the table to resync
-      def subscription_resync_table(name, table)
-        typed_exec("SELECT pglogical.alter_subscription_resynchronize_table($1, $2)",
-                   name, table)
+      def subscription_resync_table(name, table, truncate = true)
+        typed_exec("SELECT pglogical.alter_subscription_resynchronize_table($1, $2, $3)",
+                   name, table, truncate)
       end
 
       # Adds a replication set to a subscription
@@ -277,8 +277,9 @@ module PG
       # Removes a replication set
       #
       # @param set_name [string] replication set name
-      def replication_set_drop(set_name)
-        typed_exec("SELECT pglogical.drop_replication_set($1)", set_name)
+      # @param ifexists [Boolean] if true an error is not thrown when the replication set does not exist
+      def replication_set_drop(set_name, ifexists = false)
+        typed_exec("SELECT pglogical.drop_replication_set($1, $2)", set_name, ifexists)
       end
 
       # Adds a table to a replication set
@@ -317,7 +318,7 @@ module PG
       def tables_in_replication_set(set_name)
         typed_exec(<<-SQL, set_name).values.flatten
           SELECT set_reloid
-          FROM pglogical.replication_set_relation
+          FROM pglogical.replication_set_table
           JOIN pglogical.replication_set
             USING (set_id)
           WHERE set_name = $1
