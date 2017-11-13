@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.1.0] - 2017-11-13
+### Added
+- Prepend to activerecord's drop table method for removing the table from replication sets [[#14](https://github.com/ManageIQ/pg-pglogical/pull/14)]
+
 ## [2.0.0] - 2017-10-11
 ### Changed
 - Alter definitions for pglogical 2.0+ compatibility [[#12](https://github.com/ManageIQ/pg-pglogical/pull/12)]
