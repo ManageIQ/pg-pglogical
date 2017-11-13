@@ -9,7 +9,20 @@ module PG
         PG::Pglogical::Client.new(self)
       end
     end
+
+    module MigrationExtension
+      def drop_table(table)
+        pgl = PG::Pglogical::Client.new(ApplicationRecord.connection)
+        if pgl.enabled?
+          pgl.replication_sets.each do |set|
+            pgl.replication_set_remove_table(set, table) if pgl.tables_in_replication_set(set).include?(table)
+          end
+        end
+        super
+      end
+    end
   end
 end
 
 ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.include PG::Pglogical::ActiveRecordExtension
+ActiveRecord::Migration.prepend PG::Pglogical::MigrationExtension
