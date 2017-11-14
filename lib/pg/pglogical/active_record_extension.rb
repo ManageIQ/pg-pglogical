@@ -11,7 +11,7 @@ module PG
     end
 
     module MigrationExtension
-      def drop_table(table)
+      def drop_table(table, options = {})
         pgl = PG::Pglogical::Client.new(ApplicationRecord.connection)
         if pgl.enabled?
           pgl.replication_sets.each do |set|
