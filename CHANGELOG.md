@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.1.1] - 2017-11-14
+### Fixed
+- Add the options parameter to the prepended drop table method [[#16](https://github.com/ManageIQ/pg-pglogical/pull/16)]
+
 ## [2.1.0] - 2017-11-13
 ### Added
 - Prepend to activerecord's drop table method for removing the table from replication sets [[#14](https://github.com/ManageIQ/pg-pglogical/pull/14)]
