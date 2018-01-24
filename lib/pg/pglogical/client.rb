@@ -131,7 +131,7 @@ module PG
       # @param sync_data [Boolean] sync the data when subscribing
       # @param forward_origins [Array<String>] names of non-provider nodes to replicate changes
       #   from (cascading replication)
-      def subscription_create(name, dsn, replication_sets = %w(default default_insert_only), # rubocop:disable Metrics/ParameterLists
+      def subscription_create(name, dsn, replication_sets = %w(default default_insert_only),
                               sync_structure = true, sync_data = true, forward_origins = ["all"])
         typed_exec("SELECT pglogical.create_subscription($1, $2, $3, $4, $5, $6)",
                    name, dsn, replication_sets, sync_structure, sync_data, forward_origins)
