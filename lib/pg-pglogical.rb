@@ -1,2 +1,3 @@
-# rubocop:disable Style/FileName
+# rubocop:disable Naming/FileName
 require 'pg/pglogical'
+# rubocop:enable Naming/FileName
