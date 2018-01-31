@@ -12,10 +12,12 @@ module PG
 
     module MigrationExtension
       def drop_table(table, options = {})
+        table_string = table.to_s
+
         pgl = PG::Pglogical::Client.new(ApplicationRecord.connection)
         if pgl.enabled?
           pgl.replication_sets.each do |set|
-            pgl.replication_set_remove_table(set, table) if pgl.tables_in_replication_set(set).include?(table)
+            pgl.replication_set_remove_table(set, table_string) if pgl.tables_in_replication_set(set).include?(table_string)
           end
         end
         super
