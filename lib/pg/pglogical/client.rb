@@ -221,7 +221,7 @@ module PG
         sql = <<-SQL
           SELECT sub.*, stat.remote_lsn AS remote_replication_lsn, stat.local_lsn AS local_replication_lsn
           FROM pglogical.show_subscription_status($1) sub
-          JOIN pg_replication_origin_status stat
+          LEFT JOIN pg_replication_origin_status stat
             ON sub.slot_name = stat.external_id
         SQL
 
