@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.1.2] - 2018-02-07
+### Fixed
+- Account for symbol table names in drop_table patch [[#19](https://github.com/ManageIQ/pg-pglogical/pull/19)]
+- Show all subscriptions, even if no replication origin status entry exists [[#20](https://github.com/ManageIQ/pg-pglogical/pull/20)]
+
+### Changed
+- Set a version constraint on the PG gem [[#18](https://github.com/ManageIQ/pg-pglogical/pull/18)]
+
 ## [2.1.1] - 2017-11-14
 ### Fixed
 - Add the options parameter to the prepended drop table method [[#16](https://github.com/ManageIQ/pg-pglogical/pull/16)]
