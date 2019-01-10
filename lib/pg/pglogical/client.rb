@@ -235,8 +235,20 @@ module PG
       #
       # @return Array<Hash> list of results from #subscription_show_status
       def subscriptions
-        connection.select_values("SELECT sub_name FROM pglogical.subscription").collect do |s|
-          subscription_show_status(s)
+        sql = <<-SQL
+          SELECT sub.*, stat.remote_lsn AS remote_replication_lsn, stat.local_lsn AS local_replication_lsn
+          FROM (
+            SELECT pglogical.show_subscription_status(sub_name)
+            FROM pglogical.subscription
+          ) AS sub
+          LEFT JOIN pg_replication_origin_status stat
+            ON slot_name = stat.external_id
+        SQL
+
+        typed_exec(sql).collect do |s|
+          s["replication_sets"] = s["replication_sets"][1..-2].split(",")
+          s["forward_origins"] = s["forward_origins"][1..-2].split(",")
+          s
         end
       end
 
