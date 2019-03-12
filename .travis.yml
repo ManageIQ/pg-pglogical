@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+dist: xenial
 language: ruby
 rvm:
   - 2.3.1
@@ -9,4 +9,4 @@ before_install:
 script: bundle exec rake spec:setup spec
 after_script: bundle exec codeclimate-test-reporter
 addons:
-  postgresql: "9.5"
+  postgresql: "10"
