@@ -24,9 +24,8 @@ EOS
   spec.require_paths = ["lib"]
 
   spec.add_dependency "activerecord"
-  spec.add_dependency "pg", "~> 0.18"
+  spec.add_dependency "pg"
 
-  spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~> 0.52"
