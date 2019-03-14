@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.1.3] - 2019-03-14
+### Changed
+- Update ci for postgres 10 [[#23](https://github.com/ManageIQ/pg-pglogical/pull/23)]
+- Remove pg gem dependency and remove bundler [[#24](https://github.com/ManageIQ/pg-pglogical/pull/24)]
+
 ## [2.1.2] - 2018-02-07
 ### Fixed
 - Account for symbol table names in drop_table patch [[#19](https://github.com/ManageIQ/pg-pglogical/pull/19)]
