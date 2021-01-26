@@ -1,9 +1,11 @@
 sudo: required
 language: ruby
 rvm:
-  - 2.3.1
+  - 2.5.8
+  - 2.6.6
+  - 2.7.2
+  - 3.0.0
 before_install:
-  - gem install bundler -v 1.13.6
   - source ${TRAVIS_BUILD_DIR}/ci/before_install.sh
 script: bundle exec rake spec:setup spec
 before_script:
